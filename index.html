@@ -41,6 +41,16 @@ label { display:block; font-size:13px; color:var(--muted); margin:10px 0 4px; }
 .day { color:var(--muted); font-size:13px; margin:14px 0 4px; }
 #menu { position:fixed; left:0; right:0; bottom:0; background:var(--card); border-top:1px solid var(--line); padding:10px 16px calc(10px + env(safe-area-inset-bottom)); display:flex; gap:8px; justify-content:center; }
 #menu button { min-height:40px; padding:8px 12px; font-size:14px; background:var(--bg); }
+.sets { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+.setcell { flex:1 1 64px; max-width:96px; }
+.setcell label { margin:0 0 2px; font-size:12px; }
+.painrow { display:flex; align-items:center; gap:8px; margin-top:10px; color:var(--muted); font-size:14px; }
+.painrow input { width:auto; min-height:0; }
+.card.bumped { border-left:4px solid var(--accent); }
+.bump { color:var(--accent); font-size:13px; margin-top:4px; }
+button.light { flex:1 1 30%; min-height:44px; font-size:14px; }
+body.inWorkout > :not(#workout):not(.toast) { display:none; }
+#workout .card { margin:8px 0; }
 .toast { position:fixed; top:12px; left:50%; transform:translateX(-50%); background:var(--accent); color:#06281a; padding:8px 14px; border-radius:8px; font-weight:600; opacity:0; transition:opacity .2s; pointer-events:none; }
 .toast.show { opacity:1; }
 </style>
@@ -53,7 +63,10 @@ label { display:block; font-size:13px; color:var(--muted); margin:10px 0 4px; }
 </div>
 <label class="row" style="margin-top:8px"><input type="checkbox" id="awake" style="width:auto;min-height:0;flex:0"> <span>Keep screen on while this is open</span></label>
 
-<h2>Log</h2>
+<h2>Today</h2>
+<div id="todayCard"><div class="hint">Loading the program.</div></div>
+
+<h2>Quick log</h2>
 <div class="types">
   <button data-type="lift">Lift</button>
   <button data-type="cardio">Cardio</button>
@@ -93,7 +106,7 @@ label { display:block; font-size:13px; color:var(--muted); margin:10px 0 4px; }
   <div class="actions"><button type="button" class="ghost cancel">Cancel</button><button type="submit" class="primary">Save</button></div>
 </form>
 
-<h2>Today</h2>
+<h2>Logged today</h2>
 <div class="card" id="today"><div class="hint">Nothing logged yet.</div></div>
 
 <h2>History</h2>
@@ -106,6 +119,17 @@ label { display:block; font-size:13px; color:var(--muted); margin:10px 0 4px; }
   <input type="file" id="restoreFile" accept="application/json,.json" class="hidden">
 </div>
 <div class="toast" id="toast"></div>
-<script src="app.js"></script>
+<div id="workout" class="hidden">
+  <h1 id="workoutTitle"></h1>
+  <div class="hint" id="workoutNote"></div>
+  <div id="blocks"></div>
+  <div class="actions"><button type="button" class="ghost" id="cancelBtn">Cancel</button><button type="button" class="primary" id="finishBtn">Finish workout</button></div>
+</div>
+<div id="summary" class="hidden">
+  <h1>Workout saved</h1>
+  <div class="card" id="summaryBody"></div>
+  <div class="actions"><button type="button" class="primary" id="doneBtn">Done</button></div>
+</div>
+<script type="module" src="app.js"></script>
 </body>
 </html>

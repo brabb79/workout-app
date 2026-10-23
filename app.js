@@ -1,4 +1,5 @@
 // Workout Log. All data lives in this phone's localStorage. Export and Backup are the owner's copy.
+import { initProgram, renderToday, programSessions } from './program-ui.js';
 const KEY = 'wt.entries.v1';
 const SKEY = 'wt.settings.v1';
 // Matched to the owner's equipment (docs/OWNER.md): kettlebells, maces, clubs, bands, bodyweight, bow trainer.
@@ -165,7 +166,7 @@ function download(name, text, type) {
   a.download = name; document.body.appendChild(a); a.click(); a.remove();
 }
 $('exportCsv').onclick = () => download(`workouts-${todayIso()}.csv`, csv(), 'text/csv');
-$('backup').onclick = () => download(`workouts-backup-${todayIso()}.json`, JSON.stringify({ version: 1, settings: settings(), entries }, null, 1), 'application/json');
+$('backup').onclick = () => download(`workouts-backup-${todayIso()}.json`, JSON.stringify({ version: 2, settings: settings(), entries, sessions: JSON.parse(localStorage.getItem('wt.sessions.v1') || '[]'), program: JSON.parse(localStorage.getItem('wt.program.v1') || 'null') }, null, 1), 'application/json');
 $('restore').onclick = () => $('restoreFile').click();
 $('restoreFile').onchange = async ev => {
   const f = ev.target.files[0]; if (!f) return;
@@ -177,6 +178,8 @@ $('restoreFile').onchange = async ev => {
     const added = list.filter(e => e && e.id && !ids.has(e.id));
     entries = entries.concat(added); save(entries);
     if (data.settings) { saveSettings(data.settings); $('units').value = settings().units; }
+    if (Array.isArray(data.sessions) && !localStorage.getItem('wt.sessions.v1')) localStorage.setItem('wt.sessions.v1', JSON.stringify(data.sessions));
+    if (data.program && !localStorage.getItem('wt.program.v1')) localStorage.setItem('wt.program.v1', JSON.stringify(data.program));
     render(); toast(`Restored ${added.length} entries`);
   } catch (err) { alert('Could not read that backup: ' + err.message); }
   ev.target.value = '';
@@ -188,6 +191,9 @@ $('units').onchange = () => { saveSettings(Object.assign(settings(), { units: $(
 $('date').value = todayIso();
 $('date').onchange = render;
 render();
+
+// Program screens (Today, workout mode, finish).
+initProgram({ onToast: toast, onRender: render });
 
 // Keep the screen on while the app is open, so the phone does not lock between sets.
 let wakeLock = null;

@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "written": "2026-10-23",
+  "owner_notes": "See PROGRAM.md for the words and PROGRESSION.md for what the progression rules mean. Loads are strings. Extra fields beyond the agreed shape: per_side, work_seconds, fixed, required.",
+  "exercises": [
+    { "id": "club_warmup", "name": "Indian club warmup", "equipment": "Indian clubs 1 lb and 2 lb", "mode": "seconds", "unit": "s" },
+    { "id": "mobility_flow", "name": "Mobility moves for the day", "equipment": "bodyweight", "mode": "seconds", "unit": "s" },
+    { "id": "yoga_flow", "name": "Yoga flow", "equipment": "bodyweight", "mode": "seconds", "unit": "s" },
+    { "id": "cooldown_stretch", "name": "Couch stretch and calf stretch", "equipment": "bodyweight", "mode": "seconds", "unit": "s" },
+
+    { "id": "tibialis_raise", "name": "Tibialis raise", "equipment": "bodyweight, wall", "mode": "reps", "unit": "reps" },
+    { "id": "calf_raise_slow", "name": "Slow calf raise, both legs", "equipment": "bodyweight, step", "mode": "reps", "unit": "reps" },
+    { "id": "calf_raise_single", "name": "Slow calf raise, one leg", "equipment": "bodyweight, step", "mode": "reps", "unit": "reps" },
+    { "id": "calf_raise_single_18", "name": "Slow calf raise, one leg, 18 lb", "equipment": "kettlebell 18 lb, step", "mode": "reps", "unit": "reps" },
+    { "id": "wall_sit", "name": "Wall sit", "equipment": "bodyweight, wall", "mode": "seconds", "unit": "s" },
+    { "id": "split_squat", "name": "Split squat", "equipment": "bodyweight", "mode": "reps", "unit": "reps" },
+    { "id": "split_squat_18", "name": "Split squat, 18 lb at the chest", "equipment": "kettlebell 18 lb", "mode": "reps", "unit": "reps" },
+    { "id": "split_squat_36", "name": "Split squat, 36 lb at the chest", "equipment": "kettlebell 36 lb", "mode": "reps", "unit": "reps" },
+    { "id": "goblet_squat_18", "name": "Goblet squat, 18 lb", "equipment": "kettlebell 18 lb", "mode": "reps", "unit": "reps" },
+    { "id": "goblet_squat_18_pause", "name": "Goblet squat, 18 lb, 3 s down, 2 s pause", "equipment": "kettlebell 18 lb", "mode": "reps", "unit": "reps" },
+    { "id": "goblet_squat_36", "name": "Goblet squat, 36 lb", "equipment": "kettlebell 36 lb", "mode": "reps", "unit": "reps" },
+    { "id": "goblet_squat_36_pause", "name": "Goblet squat, 36 lb, 3 s down, 2 s pause", "equipment": "kettlebell 36 lb", "mode": "reps", "unit": "reps" },
+    { "id": "step_up", "name": "Step-up, low step", "equipment": "bodyweight, step", "mode": "reps", "unit": "reps" },
+    { "id": "step_up_18", "name": "Step-up, low step, 18 lb", "equipment": "kettlebell 18 lb, step", "mode": "reps", "unit": "reps" },
+    { "id": "glute_bridge", "name": "Glute bridge", "equipment": "bodyweight", "mode": "reps", "unit": "reps" },
+    { "id": "glute_bridge_single", "name": "Single-leg glute bridge", "equipment": "bodyweight", "mode": "reps", "unit": "reps" },
+
+    { "id": "kb_row_36", "name": "Kettlebell row, 36 lb", "equipment": "kettlebell 36 lb, chair", "mode": "reps", "unit": "reps" },
+    { "id": "kb_row_36_pause", "name": "Kettlebell row, 36 lb, 2 s pause at the top", "equipment": "kettlebell 36 lb, chair", "mode": "reps", "unit": "reps" },
+    { "id": "pushup_chair", "name": "Push-up, hands on a chair seat", "equipment": "bodyweight, chair", "mode": "reps", "unit": "reps" },
+    { "id": "pushup_knee", "name": "Push-up, knees down", "equipment": "bodyweight", "mode": "reps", "unit": "reps" },
+    { "id": "pushup_floor", "name": "Push-up", "equipment": "bodyweight", "mode": "reps", "unit": "reps" },
+    { "id": "pushup_feet_up", "name": "Push-up, feet raised", "equipment": "bodyweight, step", "mode": "reps", "unit": "reps" },
+    { "id": "pushup_band", "name": "Push-up, band across the back", "equipment": "bodyweight, band", "mode": "reps", "unit": "reps" },
+    { "id": "kb_press_18", "name": "Kettlebell press, 18 lb", "equipment": "kettlebell 18 lb", "mode": "reps", "unit": "reps" },
+    { "id": "kb_press_18_tempo", "name": "Kettlebell press, 18 lb, 5 s lower", "equipment": "kettlebell 18 lb", "mode": "reps", "unit": "reps" },
+    { "id": "kb_press_18_bottoms_up", "name": "Kettlebell press, 18 lb, bottoms up", "equipment": "kettlebell 18 lb", "mode": "reps", "unit": "reps" },
+    { "id": "kb_press_36_half_kneel", "name": "Kettlebell press, 36 lb, half kneeling", "equipment": "kettlebell 36 lb", "mode": "reps", "unit": "reps" },
+    { "id": "kb_press_36", "name": "Kettlebell press, 36 lb", "equipment": "kettlebell 36 lb", "mode": "reps", "unit": "reps" },
+    { "id": "band_pull_apart", "name": "Band pull-apart", "equipment": "band", "mode": "reps", "unit": "reps" },
+    { "id": "bow_draw", "name": "Bow trainer draw, 3 s hold at full draw", "equipment": "archery bow trainer", "mode": "reps", "unit": "reps" },
+    { "id": "plank", "name": "Plank", "equipment": "bodyweight", "mode": "seconds", "unit": "s" },
+    { "id": "suitcase_carry_36", "name": "Suitcase carry, 36 lb", "equipment": "kettlebell 36 lb", "mode": "seconds", "unit": "s" },
+    { "id": "grip_hold_36", "name": "Grip hold, towel through the 36 lb handle", "equipment": "kettlebell 36 lb, towel", "mode": "seconds", "unit": "s" },
+    { "id": "dead_hang", "name": "Dead hang", "equipment": "hang bar (not owned yet)", "mode": "seconds", "unit": "s" },
+
+    { "id": "kb_swing_int_15_45", "name": "Kettlebell swing intervals, 18 lb, 15 s on 45 s off", "equipment": "kettlebell 18 lb", "mode": "rounds", "unit": "rounds" },
+    { "id": "kb_swing_int_20_40", "name": "Kettlebell swing intervals, 18 lb, 20 s on 40 s off", "equipment": "kettlebell 18 lb", "mode": "rounds", "unit": "rounds" },
+    { "id": "kb_swing_int_20_20", "name": "Kettlebell swing intervals, 18 lb, 20 s on 20 s off", "equipment": "kettlebell 18 lb", "mode": "rounds", "unit": "rounds" },
+    { "id": "step_up_int", "name": "Step-up intervals, 40 s on 20 s off", "equipment": "bodyweight, step", "mode": "rounds", "unit": "rounds" },
+    { "id": "mace_360_int", "name": "Mace 360 intervals, 30 s on 30 s off", "equipment": "mace 10 lb (5 lb to learn)", "mode": "rounds", "unit": "rounds" },
+    { "id": "mace_10_2", "name": "Mace 10-to-2", "equipment": "mace 10 lb (5 lb to learn)", "mode": "reps", "unit": "reps" },
+    { "id": "rope_int_20_40", "name": "Jump rope intervals, 20 s on 40 s off", "equipment": "jump rope", "mode": "rounds", "unit": "rounds" },
+    { "id": "rope_int_30_30", "name": "Jump rope intervals, 30 s on 30 s off", "equipment": "jump rope", "mode": "rounds", "unit": "rounds" },
+    { "id": "brisk_walk", "name": "Brisk walk", "equipment": "none", "mode": "seconds", "unit": "s" },
+
+    { "id": "walk", "name": "Walk", "equipment": "none", "mode": "distance", "unit": "mi" },
+    { "id": "ruck_10", "name": "Ruck, 10 lb pack", "equipment": "backpack, 10 lb", "mode": "distance", "unit": "mi" },
+    { "id": "ruck_15", "name": "Ruck, 15 lb pack", "equipment": "backpack, 15 lb", "mode": "distance", "unit": "mi" },
+    { "id": "ruck_20", "name": "Ruck, 20 lb pack", "equipment": "backpack, 20 lb", "mode": "distance", "unit": "mi" }
+  ],
+  "workouts": [
+    {
+      "id": "a_knees",
+      "name": "A. Knee armour",
+      "focus": "legs and tendons",
+      "minutes": 38,
+      "blocks": [
+        { "exercise": "club_warmup", "sets": 1, "target": { "min": 180, "max": 180 }, "load": "1 lb then 2 lb clubs", "rest_seconds": 0, "fixed": true, "notes": "Small circles front and side. 2 lb pair for the last minute." },
+        { "exercise": "mobility_flow", "sets": 1, "target": { "min": 120, "max": 120 }, "load": "bodyweight", "rest_seconds": 0, "fixed": true, "notes": "Ankle rocks, deep squat hold onto a doorframe." },
+        { "exercise": "tibialis_raise", "sets": 2, "target": { "min": 15, "max": 25 }, "load": "bodyweight", "rest_seconds": 45, "notes": "Back on the wall, heels a foot out, lift the toes. Slow." },
+        { "exercise": "calf_raise_slow", "sets": 2, "target": { "min": 10, "max": 15 }, "load": "bodyweight", "rest_seconds": 45, "notes": "3 s up, 3 s down, full stretch at the bottom." },
+        { "exercise": "wall_sit", "sets": 2, "target": { "min": 30, "max": 60 }, "load": "bodyweight", "rest_seconds": 60, "notes": "Thighs toward parallel. Still. Breathe." },
+        { "exercise": "split_squat", "sets": 3, "target": { "min": 6, "max": 10 }, "load": "bodyweight", "rest_seconds": 60, "per_side": true, "notes": "Hand on the wall, 3 s down. Tendons first, load later." },
+        { "exercise": "goblet_squat_18", "sets": 3, "target": { "min": 8, "max": 12 }, "load": "18 lb", "rest_seconds": 75, "notes": "Deep, like you used to. Bell at the chest." },
+        { "exercise": "step_up", "sets": 2, "target": { "min": 8, "max": 12 }, "load": "bodyweight", "rest_seconds": 45, "per_side": true, "notes": "Low step. Slow lower, 3 s." },
+        { "exercise": "glute_bridge", "sets": 2, "target": { "min": 12, "max": 20 }, "load": "bodyweight", "rest_seconds": 45, "notes": "Pause 2 s at the top." },
+        { "exercise": "cooldown_stretch", "sets": 1, "target": { "min": 180, "max": 180 }, "load": "bodyweight", "rest_seconds": 0, "fixed": true, "notes": "Couch stretch and calf stretch, 45 s each side." }
+      ]
+    },
+    {
+      "id": "b_upper",
+      "name": "B. Upper body, grip and carry",
+      "focus": "pull, push, grip, posture",
+      "minutes": 38,
+      "blocks": [
+        { "exercise": "club_warmup", "sets": 1, "target": { "min": 180, "max": 180 }, "load": "1 lb then 2 lb clubs", "rest_seconds": 0, "fixed": true, "notes": "Small circles front and side. 2 lb pair for the last minute." },
+        { "exercise": "mobility_flow", "sets": 1, "target": { "min": 120, "max": 120 }, "load": "bodyweight", "rest_seconds": 0, "fixed": true, "notes": "Light band pull-aparts, arm circles, thoracic rotations." },
+        { "exercise": "kb_row_36", "sets": 3, "target": { "min": 8, "max": 12 }, "load": "36 lb", "rest_seconds": 0, "per_side": true, "notes": "Hand on a chair. 2 s squeeze at the top. Pair with the push-up." },
+        { "exercise": "pushup_chair", "sets": 3, "target": { "min": 8, "max": 15 }, "load": "bodyweight", "rest_seconds": 75, "notes": "Hands on a chair seat. Elbows and shoulders are the slow part; the app moves you up." },
+        { "exercise": "kb_press_18", "sets": 2, "target": { "min": 6, "max": 10 }, "load": "18 lb", "rest_seconds": 0, "per_side": true, "notes": "Slow lower. Pair with the pull-apart." },
+        { "exercise": "band_pull_apart", "sets": 2, "target": { "min": 15, "max": 25 }, "load": "band", "rest_seconds": 60, "notes": "Posture. Squeeze the shoulder blades." },
+        { "exercise": "bow_draw", "sets": 2, "target": { "min": 8, "max": 12 }, "load": "bow trainer", "rest_seconds": 0, "per_side": true, "notes": "Hold 3 s at full draw. Pair with the plank." },
+        { "exercise": "plank", "sets": 2, "target": { "min": 20, "max": 45 }, "load": "bodyweight", "rest_seconds": 60, "notes": "Straight line. Breathe." },
+        { "exercise": "suitcase_carry_36", "sets": 3, "target": { "min": 30, "max": 60 }, "load": "36 lb", "rest_seconds": 0, "per_side": true, "notes": "Walk tall, do not lean. Pair with the grip hold." },
+        { "exercise": "grip_hold_36", "sets": 3, "target": { "min": 20, "max": 40 }, "load": "36 lb", "rest_seconds": 60, "per_side": true, "notes": "Towel through the handle. Becomes the dead hang when the bar arrives." }
+      ]
+    },
+    {
+      "id": "c_conditioning_p1",
+      "name": "C. Conditioning and mace, phase 1",
+      "focus": "heart and stamina, easy and steady",
+      "minutes": 33,
+      "blocks": [
+        { "exercise": "club_warmup", "sets": 1, "target": { "min": 180, "max": 180 }, "load": "1 lb then 2 lb clubs", "rest_seconds": 0, "fixed": true, "notes": "Small circles front and side." },
+        { "exercise": "mobility_flow", "sets": 1, "target": { "min": 120, "max": 120 }, "load": "bodyweight", "rest_seconds": 0, "fixed": true, "notes": "Hip circles, wrist circles, a few slow swings with no weight." },
+        { "exercise": "kb_swing_int_15_45", "sets": 1, "target": { "min": 8, "max": 14 }, "load": "18 lb", "work_seconds": 15, "rest_seconds": 45, "notes": "Hinge, do not squat. You can speak a full sentence at any point." },
+        { "exercise": "step_up_int", "sets": 1, "target": { "min": 6, "max": 10 }, "load": "bodyweight", "work_seconds": 40, "rest_seconds": 20, "notes": "Steady, not fast. Change the lead leg every round." },
+        { "exercise": "mace_360_int", "sets": 1, "target": { "min": 4, "max": 8 }, "load": "10 lb mace, 5 lb to learn", "work_seconds": 30, "rest_seconds": 30, "notes": "Smooth circles. Stop a round early if the grip goes." },
+        { "exercise": "mace_10_2", "sets": 2, "target": { "min": 8, "max": 12 }, "load": "10 lb mace, 5 lb to learn", "rest_seconds": 60, "per_side": true, "notes": "Skill block while the heart settles. Slow." },
+        { "exercise": "brisk_walk", "sets": 1, "target": { "min": 300, "max": 480 }, "load": "none", "rest_seconds": 0, "fixed": true, "notes": "Finish. Let the heart come down walking, not sitting." }
+      ]
+    },
+    {
+      "id": "c_conditioning_p2",
+      "name": "C. Conditioning and mace, phase 2",
+      "focus": "heart and stamina, intervals",
+      "minutes": 33,
+      "blocks": [
+        { "exercise": "club_warmup", "sets": 1, "target": { "min": 180, "max": 180 }, "load": "1 lb then 2 lb clubs", "rest_seconds": 0, "fixed": true, "notes": "Small circles front and side." },
+        { "exercise": "mobility_flow", "sets": 1, "target": { "min": 120, "max": 120 }, "load": "bodyweight", "rest_seconds": 0, "fixed": true, "notes": "Ankle rocks, calf raises with no load, hip circles. Jumping needs warm ankles." },
+        { "exercise": "rope_int_20_40", "sets": 1, "target": { "min": 8, "max": 12 }, "load": "jump rope", "work_seconds": 20, "rest_seconds": 40, "notes": "Both feet, soft knees, low bounce, forgiving floor. A few words, not a sentence." },
+        { "exercise": "kb_swing_int_20_20", "sets": 1, "target": { "min": 8, "max": 14 }, "load": "18 lb", "work_seconds": 20, "rest_seconds": 20, "notes": "Hinge, do not squat." },
+        { "exercise": "mace_360_int", "sets": 1, "target": { "min": 4, "max": 8 }, "load": "10 lb mace", "work_seconds": 30, "rest_seconds": 30, "notes": "Smooth circles." },
+        { "exercise": "mace_10_2", "sets": 2, "target": { "min": 8, "max": 12 }, "load": "10 lb mace", "rest_seconds": 60, "per_side": true, "notes": "Skill block while the heart settles." },
+        { "exercise": "brisk_walk", "sets": 1, "target": { "min": 300, "max": 480 }, "load": "none", "rest_seconds": 0, "fixed": true, "notes": "Finish walking." }
+      ]
+    },
+    {
+      "id": "light_mobility",
+      "name": "Mobility and yoga",
+      "focus": "recovery, hips, ankles, upper back",
+      "minutes": 30,
+      "blocks": [
+        { "exercise": "yoga_flow", "sets": 2, "target": { "min": 600, "max": 600 }, "load": "bodyweight", "rest_seconds": 0, "fixed": true, "notes": "Cat and cow, downward dog, low lunge each side, figure-four each side, 90/90 switches, ankle rocks, deep squat hold, child's pose. 3 to 5 breaths each. Two rounds." },
+        { "exercise": "wall_sit", "sets": 2, "target": { "min": 30, "max": 30 }, "load": "bodyweight", "rest_seconds": 60, "fixed": true, "notes": "Light tendon hold. Not for progress." },
+        { "exercise": "calf_raise_slow", "sets": 2, "target": { "min": 1, "max": 1 }, "load": "bodyweight", "rest_seconds": 45, "fixed": true, "notes": "One raise, held at the top for 20 s. Light tendon hold." }
+      ]
+    },
+    {
+      "id": "light_ruck",
+      "name": "Easy ruck or walk",
+      "focus": "low effort heart hours, Mudder miles",
+      "minutes": 45,
+      "blocks": [
+        { "exercise": "ruck_10", "sets": 1, "target": { "min": 1.5, "max": 1.5 }, "load": "10 lb pack", "rest_seconds": 0, "notes": "A pace where you can talk easily. 30 to 60 minutes. Distance first, then weight, never both in one week. No pack: log a walk instead." }
+      ]
+    },
+    {
+      "id": "rest_walk",
+      "name": "Rest day walk",
+      "focus": "rest",
+      "minutes": 20,
+      "blocks": [
+        { "exercise": "walk", "sets": 1, "target": { "min": 0.5, "max": 1.5 }, "load": "none", "rest_seconds": 0, "fixed": true, "notes": "Optional. Easy. Rest days are rest." }
+      ]
+    }
+  ],
+  "week": [
+    { "day": 1, "required": true, "options": ["a_knees"] },
+    { "day": 2, "required": false, "options": ["rest_walk"] },
+    { "day": 3, "required": true, "options": ["b_upper"] },
+    { "day": 4, "required": false, "options": ["light_mobility", "light_ruck"] },
+    { "day": 5, "required": true, "options": ["c_conditioning_p1", "c_conditioning_p2"] },
+    { "day": 6, "required": false, "options": ["light_mobility", "light_ruck"] },
+    { "day": 7, "required": false, "options": ["rest_walk"] }
+  ],
+  "progression": [
+    { "applies_to": "reps", "rule": "double_progression", "params": { "hits_to_advance": 2, "misses_to_regress": 2, "sets_max": 4, "sets_min": 2, "rep_cap": 25, "rep_step": 2, "rep_floor": 5 } },
+    { "applies_to": "seconds", "rule": "time_ladder", "params": { "hits_to_advance": 2, "misses_to_regress": 2, "step_seconds": 5, "seconds_cap": 90, "seconds_floor": 10, "sets_max": 4, "sets_min": 2 } },
+    { "applies_to": "rounds", "rule": "round_ladder", "params": { "hits_to_advance": 2, "misses_to_regress": 2, "step_rounds": 1, "miss_if_short_by_rounds": 2 } },
+    { "applies_to": "distance", "rule": "distance_then_load", "params": { "hits_to_advance": 1, "step_miles": 0.25, "max_miles": 3, "max_minutes": 60, "floor_miles": 1, "reset_miles_on_load_step": 2, "one_change_per_week": true } },
+
+    { "applies_to": "calf_raise_slow", "rule": "ladder", "params": { "rungs": ["calf_raise_slow", "calf_raise_single", "calf_raise_single_18"] } },
+    { "applies_to": "split_squat", "rule": "ladder", "params": { "rungs": ["split_squat", "split_squat_18", "split_squat_36"] } },
+    { "applies_to": "goblet_squat_18", "rule": "ladder", "params": { "rungs": ["goblet_squat_18", "goblet_squat_18_pause", "goblet_squat_36", "goblet_squat_36_pause"] } },
+    { "applies_to": "step_up", "rule": "ladder", "params": { "rungs": ["step_up", "step_up_18"] } },
+    { "applies_to": "glute_bridge", "rule": "ladder", "params": { "rungs": ["glute_bridge", "glute_bridge_single"] } },
+    { "applies_to": "pushup_chair", "rule": "ladder", "params": { "rungs": ["pushup_chair", "pushup_knee", "pushup_floor", "pushup_feet_up", "pushup_band"] } },
+    { "applies_to": "kb_press_18", "rule": "ladder", "params": { "rungs": ["kb_press_18", "kb_press_18_tempo", "kb_press_18_bottoms_up", "kb_press_36_half_kneel", "kb_press_36"] } },
+    { "applies_to": "kb_row_36", "rule": "ladder", "params": { "rungs": ["kb_row_36", "kb_row_36_pause"], "top_flag": "needs heavier bell" } },
+    { "applies_to": "grip_hold_36", "rule": "ladder", "params": { "rungs": ["grip_hold_36", "dead_hang"], "advance_by": "owner_confirm", "owner_confirm": "has_hang_bar" } },
+    { "applies_to": "kb_swing_int_15_45", "rule": "ladder", "params": { "rungs": ["kb_swing_int_15_45", "kb_swing_int_20_40"] } },
+    { "applies_to": "kb_swing_int_20_20", "rule": "ladder", "params": { "rungs": ["kb_swing_int_20_20"] } },
+    { "applies_to": "rope_int_20_40", "rule": "ladder", "params": { "rungs": ["rope_int_20_40", "rope_int_30_30"] } },
+    { "applies_to": "ruck_10", "rule": "ladder", "params": { "rungs": ["ruck_10", "ruck_15", "ruck_20"] } },
+
+    { "applies_to": "all", "rule": "intro_weeks", "params": { "days": 14, "sets_minus": 1, "sets_min": 2, "target": "min", "count_streaks": false } },
+    { "applies_to": "all", "rule": "deload", "params": { "every_weeks": 4, "sets_minus": 1, "sets_min": 2, "target": "min", "count_streaks": false, "early_if_misses_in_week": 3 } },
+    { "applies_to": "all", "rule": "missed_time", "params": { "bands": [
+      { "min_days": 7, "max_days": 13, "sets_minus": 1, "sets_min": 2, "count_streaks": false },
+      { "min_days": 14, "max_days": 27, "rungs_back": 1, "reset_streaks": true },
+      { "min_days": 28, "rungs_back": 2, "sets": "written", "intro_days": 14 }
+    ] } },
+    { "applies_to": "all", "rule": "pain_mark", "params": { "first": { "rungs_back": 1, "reset_streaks": true }, "second_within_days": 28, "second": { "action": "park", "message": "Two pain marks on this exercise in a month. See a physio or doctor before it comes back. Unpark it yourself when they say so." }, "leg_workouts_for_gate": ["a_knees"], "leg_exercises_for_gate": ["step_up_int", "rope_int_20_40", "rope_int_30_30"] } },
+    { "applies_to": "c_conditioning_p2", "rule": "gate", "params": { "replaces": "c_conditioning_p1", "requires": [
+      { "exercise": "calf_raise_single", "value_at_least": 20, "per_side": true, "sessions": 1 },
+      { "exercise": "wall_sit", "value_at_least": 60, "sessions": 1 },
+      { "exercise": "split_squat_18", "sets_at_least": 3, "value_at_least": 10, "per_side": true, "sessions": 2 },
+      { "pain_free_days": 28 },
+      { "owner_confirm": "doctor_asked_about_intensity", "prompt": "Have you asked your doctor whether there is any limit on how hard you push intervals? Yes means you asked, whatever the answer.", "if_limit_set": "keep closed and flag trainer review" }
+    ] } },
+    { "applies_to": "rotation", "rule": "next_required", "params": { "order": ["a_knees", "b_upper", "c_conditioning_p1"], "phase2_replaces": { "c_conditioning_p1": "c_conditioning_p2" }, "light_workouts_advance_rotation": false } },
+    { "applies_to": "all", "rule": "swaps_are_not_misses", "params": { "note": "A light workout finished in place of a required one changes no streaks. Rest days with nothing logged are not misses." } }
+  ]
+}

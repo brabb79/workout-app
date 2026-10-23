@@ -1,5 +1,5 @@
-const CACHE = 'workout-v2';
-const SHELL = ['./', './index.html', './app.js', './manifest.json', './icons/icon-192.png', './icons/icon-512.png'];
+const CACHE = 'workout-v3';
+const SHELL = ['./', './index.html', './app.js', './engine.js', './program-ui.js', './docs/program/program.json', './manifest.json', './icons/icon-192.png', './icons/icon-512.png'];
 self.addEventListener('install', e => {
   // Each file is cached on its own, so one missing file cannot stop the install.
   e.waitUntil(caches.open(CACHE).then(c => Promise.allSettled(SHELL.map(u => c.add(u)))).then(() => self.skipWaiting()));
