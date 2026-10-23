@@ -42,7 +42,7 @@
     { "id": "plank", "name": "Plank", "equipment": "bodyweight", "mode": "seconds", "unit": "s" },
     { "id": "suitcase_carry_36", "name": "Suitcase carry, 36 lb", "equipment": "kettlebell 36 lb", "mode": "seconds", "per_side": true, "unit": "s" },
     { "id": "grip_hold_36", "name": "Grip hold, towel through the 36 lb handle", "equipment": "kettlebell 36 lb, towel", "mode": "seconds", "per_side": true, "unit": "s" },
-    { "id": "dead_hang", "name": "Dead hang", "equipment": "hang bar (not owned yet)", "mode": "seconds", "unit": "s", "target_on_rung": { "min": 10, "max": 30 } },
+    { "id": "dead_hang", "name": "Dead hang", "equipment": "hang bar (not owned yet)", "mode": "seconds", "unit": "s", "per_side": false, "target_on_rung": { "min": 10, "max": 30 } },
 
     { "id": "kb_swing_int_15_45", "name": "Kettlebell swing intervals, 18 lb, 15 s on 45 s off", "equipment": "kettlebell 18 lb", "mode": "rounds", "unit": "rounds" },
     { "id": "kb_swing_int_20_40", "name": "Kettlebell swing intervals, 18 lb, 20 s on 40 s off", "equipment": "kettlebell 18 lb", "mode": "rounds", "unit": "rounds" },
