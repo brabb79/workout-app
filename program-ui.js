@@ -26,7 +26,7 @@ export async function initProgram({ onToast, onRender }) {
 }
 const save = () => { write(SKEY, state); write(SESS, sessions); if (live) write(LIVE, live); else localStorage.removeItem(LIVE); };
 const unitWord = (mode, unit) => ({ reps: 'reps', seconds: 's', rounds: 'rounds', distance: 'mi' }[mode] || unit);
-const fmtTarget = b => b.mode === 'rounds' ? `${b.target.min} to ${b.target.max} rounds` : (b.target.min === b.target.max ? `${b.target.min} ${unitWord(b.mode, b.unit)}` : `${b.target.min} to ${b.target.max} ${unitWord(b.mode, b.unit)}`);
+const fmtTarget = b => b.mode === 'rounds' ? `${b.attempt} rounds this time (${b.target.min} to ${b.target.max})` : (b.target.min === b.target.max ? `${b.target.min} ${unitWord(b.mode, b.unit)}` : `${b.target.min} to ${b.target.max} ${unitWord(b.mode, b.unit)}`);
 
 export function renderToday() {
   if (!program) return;
@@ -52,7 +52,7 @@ export function renderToday() {
         ${state.flags.length ? `<div class="hint" style="margin-top:10px">Trainer review: ${state.flags.map(f => esc(f.text)).join('; ')}</div>` : ''}
       </div></details>`;
   $('todayCard').querySelectorAll('[data-start]').forEach(b => b.onclick = () => start(b.dataset.start));
-  $('todayCard').querySelectorAll('[data-confirm]').forEach(b => b.onclick = () => { state.confirms[confirmKey] = b.dataset.confirm; save(); renderToday(); });
+  $('todayCard').querySelectorAll('[data-confirm]').forEach(b => b.onclick = () => { E.setConfirm(program, state, confirmKey, b.dataset.confirm); save(); renderToday(); });
   const hb = $('todayCard').querySelector('[data-hangbar]'); if (hb) hb.onclick = () => { E.setHangBar(program, state); save(); renderToday(); };
 }
 function gateQuestion() { const g = program.progression.find(r => r.rule === 'gate'); const q = g && g.params.requires.find(r => r.owner_confirm); return q ? q.prompt : ''; }
@@ -74,6 +74,7 @@ function showWorkout() {
   $('workoutNote').textContent = flags.join(', ');
   $('blocks').innerHTML = live.blocks.map((b, i) => blockHtml(b, i)).join('');
   $('blocks').querySelectorAll('input[data-set]').forEach(inp => inp.oninput = () => { const [bi, si] = inp.dataset.set.split('.'); live.blocks[+bi].sets[+si].value = inp.value === '' ? '' : +inp.value; write(LIVE, live); });
+  $('blocks').querySelectorAll('input[data-minutes]').forEach(inp => inp.oninput = () => { live.blocks[+inp.dataset.minutes].minutes = inp.value === '' ? null : +inp.value; write(LIVE, live); });
   $('blocks').querySelectorAll('input[data-pain]').forEach(inp => inp.onchange = () => { live.blocks[+inp.dataset.pain].pain = inp.checked; write(LIVE, live); });
   $('blocks').querySelectorAll('[data-unpark]').forEach(b => b.onclick = () => { E.unpark(program, state, b.dataset.unpark); save(); const { session } = E.startSession(program, state, sessions, live.workout, live.date); session.startedAt = live.startedAt; live = session; save(); showWorkout(); });
   window.scrollTo(0, 0);
@@ -83,7 +84,7 @@ function hideWorkout() { document.body.classList.remove('inWorkout'); $('workout
 function blockHtml(b, i) {
   if (b.parked) return `<div class="card"><div class="what">${esc(b.name)}</div><div class="hint">${esc(b.bumped || 'Parked.')}</div><div class="actions"><button data-unpark="${b.key}">Unpark</button></div></div>`;
   const interval = b.work ? `${b.work} s work, ${b.rest} s rest. ` : (b.rest ? `Rest ${b.rest} s. ` : '');
-  const inputs = b.sets.map((s, si) => `<div class="setcell"><label>${s.side ? s.side : 'set ' + (si + 1)}</label><input type="number" inputmode="decimal" step="any" min="0" data-set="${i}.${si}" value="${s.value}"></div>`).join('');
+  const inputs = b.sets.map((s, si) => `<div class="setcell"><label>${s.side ? s.side : (b.mode === 'distance' ? 'miles' : 'set ' + (si + 1))}</label><input type="number" inputmode="decimal" step="any" min="0" data-set="${i}.${si}" value="${s.value}"></div>`).join('') + (b.mode === 'distance' ? `<div class="setcell"><label>minutes</label><input type="number" inputmode="numeric" min="0" data-minutes="${i}" value="${b.minutes ?? ''}"></div>` : '');
   return `<div class="card${b.bumped ? ' bumped' : ''}">
     <div class="what">${esc(b.name)} <span class="detail">${esc(b.load)}</span></div>
     <div class="detail">${fmtTarget(b)}. ${interval}${b.notes ? esc(b.notes) : ''}</div>
