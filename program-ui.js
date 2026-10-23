@@ -19,7 +19,7 @@ export async function initProgram({ onToast, onRender }) {
   live = read(LIVE, null);
   if (live) showWorkout(); else renderToday();
   $('finishBtn').onclick = finish;
-  $('cancelBtn').onclick = () => { if (confirm('Stop without saving this workout?')) { live = null; localStorage.removeItem(LIVE); hideWorkout(); renderToday(); } };
+  $('cancelBtn').onclick = () => { if (confirm('Stop without saving this workout?')) { stopTimer(); live = null; localStorage.removeItem(LIVE); hideWorkout(); renderToday(); } };
   $('doneBtn').onclick = () => { $('summary').classList.add('hidden'); renderToday(); };
   window.addEventListener('focus', () => { if (!live) renderToday(); });
   initProgram.toast = onToast; initProgram.render = onRender;
@@ -75,6 +75,7 @@ function showWorkout() {
   $('blocks').innerHTML = live.blocks.map((b, i) => blockHtml(b, i)).join('');
   $('blocks').querySelectorAll('input[data-set]').forEach(inp => inp.oninput = () => { const [bi, si] = inp.dataset.set.split('.'); live.blocks[+bi].sets[+si].value = inp.value === '' ? '' : +inp.value; write(LIVE, live); });
   $('blocks').querySelectorAll('input[data-minutes]').forEach(inp => inp.oninput = () => { live.blocks[+inp.dataset.minutes].minutes = inp.value === '' ? null : +inp.value; write(LIVE, live); });
+  $('blocks').querySelectorAll('[data-timer]').forEach(btn => btn.onclick = () => startTimer(+btn.dataset.timer, btn.dataset.kind));
   $('blocks').querySelectorAll('input[data-pain]').forEach(inp => inp.onchange = () => { live.blocks[+inp.dataset.pain].pain = inp.checked; write(LIVE, live); });
   $('blocks').querySelectorAll('[data-unpark]').forEach(b => b.onclick = () => { E.unpark(program, state, b.dataset.unpark); save(); const { session } = E.startSession(program, state, sessions, live.workout, live.date); session.startedAt = live.startedAt; live = session; save(); showWorkout(); });
   window.scrollTo(0, 0);
@@ -89,12 +90,51 @@ function blockHtml(b, i) {
     <div class="what">${esc(b.name)} <span class="detail">${esc(b.load)}</span></div>
     <div class="detail">${fmtTarget(b)}. ${interval}${b.notes ? esc(b.notes) : ''}</div>
     ${b.bumped ? `<div class="bump">Changed: ${esc(b.bumped)}</div>` : ''}
+    ${b.cue ? `<div class="cue">${esc(b.cue)}</div>` : ''}
+    ${b.image ? `<img class="how" src="${esc(b.image)}" alt="">` : ''}
+    ${b.link ? `<a class="howlink" href="${esc(b.link)}" target="_blank" rel="noopener">How to do it</a>` : ''}
+    ${timerHtml(b, i)}
     <div class="sets">${inputs}</div>
     ${b.fixed ? '' : `<label class="painrow"><input type="checkbox" data-pain="${i}"> pain, not burn</label>`}
   </div>`;
 }
 
+// Timers: vibration only, never sound, so the owner's music is untouched.
+let timer = null;
+function timerHtml(b, i) {
+  if (b.mode === 'seconds' && !b.parked) return `<div class="timer" id="timer-${i}"><button type="button" data-timer="${i}" data-kind="hold">Start ${b.sets[0] ? b.sets[0].value : b.target.min} s</button><span class="timeleft"></span></div>`;
+  if (b.mode === 'rounds' && b.work) return `<div class="timer" id="timer-${i}"><button type="button" data-timer="${i}" data-kind="interval">Start rounds: ${b.work} s on, ${b.rest} s off</button><span class="timeleft"></span></div>`;
+  if (b.rest && !b.fixed) return `<div class="timer" id="timer-${i}"><button type="button" class="ghost" data-timer="${i}" data-kind="rest">Rest ${b.rest} s</button><span class="timeleft"></span></div>`;
+  return '';
+}
+function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (e) { /* no vibration: the countdown still shows */ } }
+function stopTimer() { if (timer) { clearInterval(timer.id); const el = document.getElementById('timer-' + timer.i); if (el) { el.querySelector('.timeleft').textContent = ''; el.querySelector('button').disabled = false; } timer = null; } }
+function startTimer(i, kind) {
+  stopTimer();
+  const b = live.blocks[i];
+  const el = document.getElementById('timer-' + i);
+  const out = el.querySelector('.timeleft');
+  const btn = el.querySelector('button');
+  btn.disabled = true;
+  let phase = kind === 'interval' ? 'work' : kind;
+  let left = kind === 'hold' ? (+b.sets[0].value || b.target.min) : (kind === 'rest' ? b.rest : b.work);
+  let round = 0;
+  const show = () => { out.textContent = (kind === 'interval' ? `round ${round + 1}, ${phase} ` : '') + left + ' s'; };
+  show();
+  timer = { i, id: setInterval(() => {
+    left -= 1;
+    if (left > 0) { show(); return; }
+    if (kind === 'interval') {
+      if (phase === 'work') { round += 1; b.sets[0].value = round; const inp = el.parentElement.querySelector('input[data-set="' + i + '.0"]'); if (inp) inp.value = round; write(LIVE, live); buzz([200, 100, 200]); if (round >= b.target.max) { stopTimer(); out.textContent = 'done, ' + round + ' rounds'; return; } phase = 'rest'; left = b.rest; show(); return; }
+      buzz([400]); phase = 'work'; left = b.work; show(); return;
+    }
+    buzz(kind === 'hold' ? [300, 100, 300] : [400]);
+    stopTimer(); out.textContent = kind === 'hold' ? 'done' : 'go';
+  }, 1000) };
+}
+
 function finish() {
+  stopTimer();
   const today = todayIso();
   live.blocks.forEach(b => { b.sets = b.sets.filter(s => s.value !== '' && s.value != null); });
   const { results } = E.finishSession(program, state, sessions, live, today);

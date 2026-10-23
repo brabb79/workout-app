@@ -192,7 +192,7 @@ export function startSession(program, state, sessions, workoutId, today) {
       if (useLast && last.sets[s] != null) v = Math.min(target.max, Math.max(target.min, +last.sets[s].value || target.min));
       setList.push({ side: perSide ? (s % 2 === 0 ? 'L' : 'R') : null, value: v });
     }
-    return { key: blockKey(workout.id, i), exercise: bs.rung, name: ex.name, mode: ex.mode, unit: ex.unit, load: wb.load, rest: wb.rest_seconds, work: wb.work_seconds || null, fixed: !!wb.fixed, perSide, parked: bs.parked, bumped: bs.bumped, target, attempt: bs.attempt, minutes: ex.mode === 'distance' ? (last && last.minutes != null ? last.minutes : null) : undefined, sets: setList, notes: wb.notes || '', pain: false };
+    return { key: blockKey(workout.id, i), exercise: bs.rung, name: ex.name, mode: ex.mode, unit: ex.unit, load: wb.load, rest: wb.rest_seconds, work: wb.work_seconds || null, fixed: !!wb.fixed, perSide, parked: bs.parked, bumped: bs.bumped, target, attempt: bs.attempt, cue: ex.cue || '', link: ex.link || '', image: ex.image || '', minutes: ex.mode === 'distance' ? (last && last.minutes != null ? last.minutes : null) : undefined, sets: setList, notes: wb.notes || '', pain: false };
   });
   return { session: { id: null, date: today, workout: workoutId, name: workout.name, required, startedAt: null, finishedAt: null, countStreaks, intro, deload, blocks }, state };
 }
